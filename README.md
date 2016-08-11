@@ -1,4 +1,2 @@
-# ITE445
-# ITE445
-# ITE445
-# ITE445
+#Hello, My Lovely World!
+#This is the repo for ITE445 class.
