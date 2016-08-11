@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>hello phaser!</title>
-        <script src="//cdn.jsdelivr.net/phaser/2.5.0/phaser.min.js"></script>
+        <script src="phaser.min.js"></script>
     </head>
     <body>
 
@@ -28,6 +28,16 @@
             var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
             logo.anchor.setTo(0.5, 0.5);
 
+            game.stage.backgroundColor = "#4488AA";
+
+            logo.inputEnabled = true;
+            logo.events.onInputDown.add(changeColor, this);
+
+        }
+
+        function changeColor () {
+            var color = Phaser.Color.getRandomColor(50,255,255);
+            game.stage.backgroundColor = color;
         }
 
     };
