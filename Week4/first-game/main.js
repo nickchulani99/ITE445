@@ -6,6 +6,8 @@ var mainState = {
 
 	create: function() {
 		game.stage.backgroundColor = '#3498db';
+		game.physics.startSystem(Phaser.Physics.ARCADE);
+		game.renderer.renderSession.roundRixels = true;
 	},
 
 	update: function() {
