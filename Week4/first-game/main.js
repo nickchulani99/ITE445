@@ -5,7 +5,7 @@ var mainState = {
 	},
 
 	create: function() {
-		game.stage.backgroundColor('#3498db');
+		game.stage.backgroundColor = '#3498db';
 	},
 
 	update: function() {
