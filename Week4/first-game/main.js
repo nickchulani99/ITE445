@@ -10,7 +10,11 @@ var mainState = {
 		game.renderer.renderSession.roundRixels = true;
 
 		this.player = game.add.sprite(game.width/2, game.height/2, 'player');
+		this.player.anchor.setTo(0.5, 0.5);
 
+		game.physics.arcade.enable(this.player);
+
+		this.player.body.gravity.y = 500;
 	},
 
 	update: function() {
