@@ -5,7 +5,7 @@ var mainState = {
 	},
 
 	create: function() {
-
+		game.stage.backgroundColor('#3498db');
 	},
 
 	update: function() {
@@ -13,7 +13,8 @@ var mainState = {
 	},
 };
 	
-var game = new Phaser.Game(500,340,Phaser.AUTO, 'gameDiv');
+var game = new Phaser.Game(500,	340, Phaser.AUTO, 'gameDiv');
 
 game.state.add('main', mainState);
 game.state.start('main');
+
