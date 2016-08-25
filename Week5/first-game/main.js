@@ -49,9 +49,7 @@ var mainState = {
 
 		this.walls.setAll('body.immovable', true);
 
-		this.coin.game.add.sprite(60,140,'coin');
-		game.physics.arcade.enable(this.coin);
-		this.coin.anchor.setTo(0.5,0.5);
+		createCoin();
 	},
 
 	update: function() {
@@ -87,7 +85,9 @@ var mainState = {
 	},
 
 	createCoin: function() {
-		
+		this.coin = game.add.sprite(60,140,'coin');
+		game.physics.arcade.enable(this.coin);
+		this.coin.anchor.setTo(0.5,0.5);
 	},
 };
 	
