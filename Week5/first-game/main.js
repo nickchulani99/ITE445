@@ -51,6 +51,9 @@ var mainState = {
 
 	update: function() {
 		this.movePlayer();
+		
+		//add collision
+		game.physics.arcade.collide(this.player, this.walls);
 	},
 
 	movePlayer: function() {
