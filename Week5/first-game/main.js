@@ -11,6 +11,7 @@ var mainState = {
 		game.stage.backgroundColor = '#3498db';
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.renderer.renderSession.roundRixels = true;
+
 		//coin
 		this.coin = game.add.sprite(60,140,'coin');
 		game.physics.arcade.enable(this.coin);
@@ -52,6 +53,12 @@ var mainState = {
 		middleBottom.scale.setTo(1.5, 1);
 
 		this.walls.setAll('body.immovable', true);
+
+		//score
+		this.scoreLabel = game.add.text(30,30,'Score: 0', {
+			font: '18px Arial',
+			fill: '#ffffff'
+		});
 	},
 
 	update: function() {
