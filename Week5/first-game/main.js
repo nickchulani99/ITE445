@@ -39,19 +39,19 @@ var mainState = {
 		game.add.sprite(-100,160,'wallH',0,this.walls);
 		game.add.sprite(400,160,'wallH',0,this.walls);
 
-		this.walls.setAll('body.immovable', true);
-
 		//middle horizontals scaled
 		var middleTop = game.add.sprite(100, 80, 'wallH', 0, this.walls);
 		middleTop.scale.setTo(1.5, 1);
 
 		var middleBottom = game.add.sprite(100, 240, 'wallH', 0, this.walls);
 		middleBottom.scale.setTo(1.5, 1);
+
+		this.walls.setAll('body.immovable', true);
 	},
 
 	update: function() {
 		this.movePlayer();
-		
+
 		//add collision
 		game.physics.arcade.collide(this.player, this.walls);
 	},
