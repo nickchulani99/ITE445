@@ -2,6 +2,8 @@ var mainState = {
 	
 	preload: function() {
 		game.load.image('player', 'assets/player.png');
+		game.load.image('wallV', 'assets/wallVertical.png');
+		game.load.image('wallH','assets/wallHorizontal.png');
 	},
 
 	create: function() {
@@ -9,6 +11,7 @@ var mainState = {
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.renderer.renderSession.roundRixels = true;
 
+		//player
 		this.player = game.add.sprite(game.width/2, game.height/2, 'player');
 		this.player.anchor.setTo(0.5, 0.5);
 
@@ -16,7 +19,15 @@ var mainState = {
 
 		this.player.body.gravity.y = 100;
 
+		//control
 		this.cursor = game.input.keyboard.createCursorKeys();
+
+		//walls
+		this.walls = game.add.group();
+		this.walls.enableBody = true;
+
+		game.add.sprite(0,0,'wallV',0,this.walls);
+		game.add.sprite(480,0,'wallV',0,this.walls);
 	},
 
 	update: function() {
