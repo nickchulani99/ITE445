@@ -88,7 +88,7 @@ var mainState = {
 		this.coin.game.add.sprite(60,140,'coin');
 		game.physics.arcade.enable(this.coin);
 		this.coin.anchor.setTo(0.5,0.5);
-	}
+	},
 };
 	
 var game = new Phaser.Game(500,	340, Phaser.AUTO, 'gameDiv');
