@@ -64,6 +64,7 @@ var mainState = {
 	update: function() {
 		//add collision
 		game.physics.arcade.collide(this.player, this.walls);
+		game.physics.arcade.overelap(this.player, this.coin, this.takeCoin, null, this);
 
 		this.movePlayer();
 
@@ -93,6 +94,11 @@ var mainState = {
 		game.state.start('main');
 	},
 
+	takeCoin: function(player, coin) {
+		this.coin.kill();
+		this.score += 5;
+		this.scoreLabel.text = 'Score: ' + this.score;
+	},
 };
 	
 var game = new Phaser.Game(500,	340, Phaser.AUTO, 'gameDiv');
