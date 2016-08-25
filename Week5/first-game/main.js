@@ -64,7 +64,7 @@ var mainState = {
 	update: function() {
 		//add collision
 		game.physics.arcade.collide(this.player, this.walls);
-		game.physics.arcade.overelap(this.player, this.coin, this.takeCoin, null, this);
+		game.physics.arcade.overlap(this.player, this.coin, this.takeCoin, null, this);
 
 		this.movePlayer();
 
