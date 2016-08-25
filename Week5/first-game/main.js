@@ -40,6 +40,13 @@ var mainState = {
 		game.add.sprite(400,160,'wallH',0,this.walls);
 
 		this.walls.setAll('body.immovable', true);
+
+		//middle horizontals scaled
+		var middleTop = game.add.sprite(100, 80, 'wallH', 0, this.walls);
+		middleTop.scale.setTo(1.5, 1);
+
+		var middleBottom = game.add.sprite(100, 240, 'wallH', 0, this.walls);
+		middleBottom.scale.setTo(1.5, 1);
 	},
 
 	update: function() {
