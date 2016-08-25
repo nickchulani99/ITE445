@@ -17,7 +17,7 @@ var mainState = {
 
 		game.physics.arcade.enable(this.player);
 
-		this.player.body.gravity.y = 100;
+		this.player.body.gravity.y = 300;
 
 		//control
 		this.cursor = game.input.keyboard.createCursorKeys();
@@ -54,6 +54,11 @@ var mainState = {
 
 		//add collision
 		game.physics.arcade.collide(this.player, this.walls);
+
+		//check for respawn
+		if (!this.player.inWorld) {
+			this.playerDie();
+		}
 	},
 
 	movePlayer: function() {
@@ -70,6 +75,10 @@ var mainState = {
 		if (this.cursor.up.isDown && this.player.body.touching.down) {
 			this.player.body.velocity.y = -320;
 		}
+	},
+
+	playerDie: function(){
+		game.state.start('main');
 	},
 };
 	
