@@ -14,7 +14,7 @@ var mainState = {
 
 		game.physics.arcade.enable(this.player);
 
-		this.player.body.gravity.y = 500;
+		this.player.body.gravity.y = 100;
 
 		this.cursor = game.input.keyboard.createCursorKeys();
 	},
