@@ -11,6 +11,10 @@ var mainState = {
 		game.stage.backgroundColor = '#3498db';
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		game.renderer.renderSession.roundRixels = true;
+		//coin
+		this.coin = game.add.sprite(60,140,'coin');
+		game.physics.arcade.enable(this.coin);
+		this.coin.anchor.setTo(0.5,0.5);
 
 		//player
 		this.player = game.add.sprite(game.width/2, game.height/2, 'player');
@@ -84,11 +88,6 @@ var mainState = {
 		game.state.start('main');
 	},
 
-	createCoin: function() {
-		this.coin = game.add.sprite(60,140,'coin');
-		game.physics.arcade.enable(this.coin);
-		this.coin.anchor.setTo(0.5,0.5);
-	},
 };
 	
 var game = new Phaser.Game(500,	340, Phaser.AUTO, 'gameDiv');
