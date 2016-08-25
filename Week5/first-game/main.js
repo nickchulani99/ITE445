@@ -52,14 +52,12 @@ var mainState = {
 		middleBottom.scale.setTo(1.5, 1);
 
 		this.walls.setAll('body.immovable', true);
-
-		createCoin();
 	},
 
 	update: function() {
 		//add collision
 		game.physics.arcade.collide(this.player, this.walls);
-		
+
 		this.movePlayer();
 
 		//check for respawn
