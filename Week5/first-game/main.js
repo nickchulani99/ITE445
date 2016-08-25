@@ -22,12 +22,24 @@ var mainState = {
 		//control
 		this.cursor = game.input.keyboard.createCursorKeys();
 
-		//walls
+		//walls by grouping
 		this.walls = game.add.group();
 		this.walls.enableBody = true;
 
+		//all vertical
 		game.add.sprite(0,0,'wallV',0,this.walls);
 		game.add.sprite(480,0,'wallV',0,this.walls);
+
+		//all horizontal
+		game.add.sprite(0,0,'wallH',0,this.walls); 
+		game.add.sprite(300,0,'wallH',0,this.walls);
+		game.add.sprite(0,320,'wallH',0,this.walls);
+		game.add.sprite(300,320,'wallH',0,this.walls);
+
+		game.add.sprite(-100,160,'wallH',0,this.walls);
+		game.add.sprite(400,160,'wallH',0,this.walls);
+
+		this.walls.setAll('body.immovable', true);
 	},
 
 	update: function() {
