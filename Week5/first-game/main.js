@@ -4,6 +4,7 @@ var mainState = {
 		game.load.image('player', 'assets/player.png');
 		game.load.image('wallV', 'assets/wallVertical.png');
 		game.load.image('wallH','assets/wallHorizontal.png');
+		game.load.image('coin', 'assets/coin.png');
 	},
 
 	create: function() {
@@ -47,6 +48,8 @@ var mainState = {
 		middleBottom.scale.setTo(1.5, 1);
 
 		this.walls.setAll('body.immovable', true);
+
+		createCoin();
 	},
 
 	update: function() {
@@ -80,6 +83,12 @@ var mainState = {
 	playerDie: function(){
 		game.state.start('main');
 	},
+
+	createCoin: function() {
+		this.coin.game.add.sprite(60,140,'coin');
+		game.physics.arcade.enable(this.coin);
+		this.coin.anchor.setTo(0.5,0.5);
+	}
 };
 	
 var game = new Phaser.Game(500,	340, Phaser.AUTO, 'gameDiv');
