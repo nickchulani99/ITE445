@@ -59,6 +59,7 @@ var mainState = {
 			font: '18px Arial',
 			fill: '#ffffff'
 		});
+		this.score = 0;
 	},
 
 	update: function() {
