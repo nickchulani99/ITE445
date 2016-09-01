@@ -5,6 +5,7 @@ var mainState = {
 		game.load.image('wallV', 'assets/wallVertical.png');
 		game.load.image('wallH', 'assets/wallHorizontal.png');
 		game.load.image('coin', 'assets/coin.png');
+		game.load.image('enemy', 'assets/enemy.png');
 	},
 
 	create: function(){
@@ -16,7 +17,7 @@ var mainState = {
 		this.player = game.add.sprite(game.width/2, game.height/2, 'player');
 		this.player.anchor.setTo(0.5, 0.5);
 		game.physics.arcade.enable(this.player);
-		this.player.body.gravity.y = 20;
+		this.player.body.gravity.y = 100;
 
 		//control
 		this.cursor = game.input.keyboard.createCursorKeys();
