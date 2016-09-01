@@ -82,12 +82,6 @@ var mainState = {
 		game.state.start("main");
 	},
 
-	takeCoin: function(player, coin){
-		this.coin.kill();
-		this.score += 5;
-		this.scoreLabel.text = 'score: ' + this.score;
-	},
-
 	updateCoinPosition: function(){
 		var coinPosition = [
 		{x: 140, y: 60}, {x: 360, y: 60},
@@ -103,7 +97,9 @@ var mainState = {
 		var newPosition = game.rnd.pick(coinPosition);
 		this.coin.reset(newPosition.x, newPosition.y);
 	},
+
 	takeCoin: function(player, coin){
+		this.coin.kill();
 		this.score += 5;
 		this.scoreLabel.text = 'score: ' + this. score;
 		this.updateCoinPosition();

@@ -19,7 +19,7 @@ var mainState = {
 		game.physics.arcade.enable(this.player);
 		this.player.body.gravity.y = 400;
 
-		//control
+		//player control
 		this.cursor = game.input.keyboard.createCursorKeys();
 
 		//walls
@@ -52,6 +52,11 @@ var mainState = {
 			{font: '18px Arial', fill: '#ffffff'});
 		this.score = 0;
 
+		//enemies
+		this.enemies = game.add.group();
+		this.enemies.enableBody = true;
+		this.enemies.createMultiple(10, 'enemy');
+		this.time.events.loop(2200, this.addEnemy, this);
 	},
 
 	update: function(){
@@ -83,12 +88,6 @@ var mainState = {
 		game.state.start("main");
 	},
 
-	takeCoin: function(player, coin){
-		this.coin.kill();
-		this.score += 5;
-		this.scoreLabel.text = 'score: ' + this.score;
-	},
-
 	updateCoinPosition: function(){
 		var coinPosition = [
 		{x: 140, y: 60}, {x: 360, y: 60},
@@ -104,7 +103,9 @@ var mainState = {
 		var newPosition = game.rnd.pick(coinPosition);
 		this.coin.reset(newPosition.x, newPosition.y);
 	},
+
 	takeCoin: function(player, coin){
+		this.coin.kill();
 		this.score += 5;
 		this.scoreLabel.text = 'score: ' + this. score;
 		this.updateCoinPosition();
