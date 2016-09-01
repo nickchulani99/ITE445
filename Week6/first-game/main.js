@@ -60,12 +60,19 @@ var mainState = {
 	},
 
 	update: function(){
+		//player
 		game.physics.arcade.collide(this.player, this.walls);
 		this.movePlayer();
 		if (!this.player.inWorld){
 			this.playerDie();
 		}
+
+		//coin
 		game.physics.arcade.overlap(this.player, this.coin, this.takeCoin, null, this);
+
+		//enemies
+		game.physics.arcade.collide(this.enemies, this.walls);
+		game.physics.arcade.overlap(this.player, this.enemies, this.playerDie, null, this);
 	},
 
 	movePlayer: function(){
@@ -109,7 +116,24 @@ var mainState = {
 		this.score += 5;
 		this.scoreLabel.text = 'score: ' + this. score;
 		this.updateCoinPosition();
-	}
+	},
+
+	addEnemy: function() {
+		var enemy = this.enemies.getFirstDead();
+
+		if (!enemy) {
+			return;
+		}
+
+		//initialize an enemy
+		enemy.anchor.setTo(0.5, 1);
+		enemy.reset(game.width/2, 0);
+		enemy.body.gravity.y = 500;
+		enemy.body.velocity.x = 100 * game.rnd.pick([-1, 1]);
+		enemy.body.bounce.x = 1;
+		enemy.checkWorldBounds = true;
+		enemy.outOfBoundsKill = true;
+	},
 
 };
 
