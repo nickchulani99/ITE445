@@ -73,6 +73,11 @@ var mainState = {
 		//enemies
 		game.physics.arcade.collide(this.enemies, this.walls);
 		game.physics.arcade.overlap(this.player, this.enemies, this.playerDie, null, this);
+
+		this.movePlayer();
+		if (!this.player.inWorld) {
+			this.playerDie();
+		}
 	},
 
 	movePlayer: function(){
